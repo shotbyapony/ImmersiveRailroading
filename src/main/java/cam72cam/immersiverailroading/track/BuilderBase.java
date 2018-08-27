@@ -188,7 +188,9 @@ public abstract class BuilderBase {
 
 	public boolean canBuild() {
 		for(TrackBase track : tracks) {
-			if (!track.canPlaceTrack()) {
+			if(this instanceof Inspection) {
+				return true;
+			} else if (!track.canPlaceTrack()) {
 				return false;
 			}
 		}

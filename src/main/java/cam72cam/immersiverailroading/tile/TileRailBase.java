@@ -23,6 +23,7 @@ import cam72cam.immersiverailroading.library.CouplerAugmentMode;
 import cam72cam.immersiverailroading.library.LocoControlMode;
 import cam72cam.immersiverailroading.library.StockDetectorMode;
 import cam72cam.immersiverailroading.library.SwitchState;
+import cam72cam.immersiverailroading.library.TrackItems;
 import cam72cam.immersiverailroading.physics.MovementTrack;
 import cam72cam.immersiverailroading.util.BlockUtil;
 import cam72cam.immersiverailroading.util.ParticleUtil;
@@ -621,6 +622,9 @@ public class TileRailBase extends SyncdTileEntity implements ITrack, ITickable {
 			
 			if (this instanceof TileRail) {
 				double floating = ((TileRail)this).percentFloating();
+				if(((TileRail)this).getType() == TrackItems.INSPECTION) {
+					floating = 0.0;
+				}
 				if (floating > ConfigBalance.trackFloatingPercent) {
 					if (BlockRailBase.tryBreakRail(world, pos)) {
 						getWorld().destroyBlock(pos, true);
