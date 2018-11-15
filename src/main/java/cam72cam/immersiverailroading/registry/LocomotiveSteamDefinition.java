@@ -153,8 +153,8 @@ public class LocomotiveSteamDefinition extends LocomotiveDefinition {
 				}
 				break;
 
-			case GARRETT_WALSCHAERTS:
-			case GARRETT_STEPHENSON: {
+			case GARRATT_WALSCHAERTS:
+			case GARRATT_STEPHENSON: {
 				for (int i = 0; i < 10; i++) {
 					addComponentIfExists(RenderComponent.parseID(RenderComponentType.WHEEL_DRIVER_MIDDLE_X, this, groups, i), true);
 				}
@@ -236,8 +236,8 @@ public class LocomotiveSteamDefinition extends LocomotiveDefinition {
             }
             break;
 
-            case GARRETT_WALSCHAERTS:
-			case GARRETT_STEPHENSON:
+            case GARRATT_WALSCHAERTS:
+			case GARRATT_STEPHENSON:
                 if (sides.size() == 0) {
                     sides.add("LEFT_FRONT");
                     sides.add("RIGHT_FRONT");

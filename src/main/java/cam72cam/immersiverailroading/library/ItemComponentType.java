@@ -14,6 +14,12 @@ public enum ItemComponentType {
 	// MALLET
 	FRONT_FRAME(AssemblyStep.FRAME, CraftingType.CASTING, RenderComponentType.FRONT_LOCOMOTIVE),
 	REAR_FRAME(AssemblyStep.FRAME, CraftingType.CASTING, RenderComponentType.REAR_LOCOMOTIVE),
+
+	//GARRETT
+	FRONT_SHELL(AssemblyStep.SHELL, CraftingType.PLATE_LARGE, RenderComponentType.SHELL),
+	REAR_SHELL(AssemblyStep.SHELL, CraftingType.PLATE_LARGE, RenderComponentType.SHELL),
+	FRONT_PIPING(AssemblyStep.BOILER, CraftingType.PLATE_LARGE, RenderComponentType.PIPING),
+	REAR_PIPING(AssemblyStep.BOILER, CraftingType.PLATE_LARGE, RenderComponentType.PIPING),
 	
 	// STANDARD
 	BOGEY_WHEEL(AssemblyStep.WHEELS, CraftingType.CASTING, RenderComponentType.BOGEY_POS_WHEEL_X),
@@ -76,6 +82,7 @@ public enum ItemComponentType {
 	REACH_ROD(AssemblyStep.VALVE_GEAR, CraftingType.CASTING_HAMMER, RenderComponentType.REACH_ROD_SIDE),
 	
 	// LEGACY, how do we depricate this??
+	//all parts are listed above, is this clear to be deleted?
 	WALCHERTS_LINKAGE(AssemblyStep.VALVE_GEAR, CraftingType.CASTING_HAMMER, 
 			RenderComponentType.UNION_LINK_SIDE,
 			RenderComponentType.COMBINATION_LEVER_SIDE,

@@ -163,34 +163,39 @@ public abstract class EntityRidableRollingStock extends EntityBuildableRollingSt
 			return;
 		}
 		if (source.getRidingEntity() == this) {
-			if (sprinting) {
-				movement = movement.scale(3);
-			}
+            if (sprinting) {
+                movement = movement.scale(3);
+            }
 
-			movement = VecUtil.rotateYaw(movement, source.getRotationYawHead());
-			movement = VecUtil.rotateYaw(movement, 180-this.rotationYaw);
+            movement = VecUtil.rotateYaw(movement, source.getRotationYawHead());
+            movement = VecUtil.rotateYaw(movement, 180 - this.rotationYaw);
 
-			//currently doesn't support new code variable wise, so hardcoded to not allow it at this time
-			if(true){
-			Vec3d pos = passengerPositions.get(source.getPersistentID()).add(movement);
+			Vec3d pos;
+            //currently doesn't support new code variable wise, so hardcoded to not allow it at this time
+            if (true) {
+                pos = passengerPositions.get(source.getPersistentID()).add(movement);
 
 
-
-			if (this instanceof EntityCoupleableRollingStock) {
-				if (this.getDefinition().isAtFront(gauge, pos) && ((EntityCoupleableRollingStock)this).isCoupled(CouplerType.FRONT)) {
-					source.startRiding(((EntityCoupleableRollingStock)this).getCoupled(CouplerType.FRONT));
-					return;
-				}
-				if (this.getDefinition().isAtRear(gauge, pos) && ((EntityCoupleableRollingStock)this).isCoupled(CouplerType.BACK)) {
-					source.startRiding(((EntityCoupleableRollingStock)this).getCoupled(CouplerType.BACK));
-					return;
-				}
-			}}
-			else{
-				Vec3d pos = passengerPositions.get(source.getPersistentID()).add(movement);
+                if (this instanceof EntityCoupleableRollingStock) {
+                    if (this.getDefinition().isAtFront(gauge, pos) && ((EntityCoupleableRollingStock) this).isCoupled(CouplerType.FRONT)) {
+                        source.startRiding(((EntityCoupleableRollingStock) this).getCoupled(CouplerType.FRONT));
+                        return;
+                    }
+                    if (this.getDefinition().isAtRear(gauge, pos) && ((EntityCoupleableRollingStock) this).isCoupled(CouplerType.BACK)) {
+                        source.startRiding(((EntityCoupleableRollingStock) this).getCoupled(CouplerType.BACK));
+                        return;
+                    }
+                }
+            }
+            else {
+				/*Vec3d pos = passengerPositions.get(source.getPersistentID()).add(movement);
 				for() {
 
-					/*writing out idea from here
+				    if(){
+				    pos = passengerPositions.get(source.getPersistanceID()).add(-movement);
+				    }
+				 }
+					writing out idea from here
 					read the new position of the player. if none of the "walkways" cover this area, which is checked by for loop, subtract that movement (possibly able to be checked via a 3-4 dimension
 					array which states which is walkable area's, which would remove the need to go through all the "walkway" components.
 
@@ -200,10 +205,10 @@ public abstract class EntityRidableRollingStock extends EntityBuildableRollingSt
 					connections between the "walkways" are calculated in separate method, or even separate class, where it checks connections via checking to see if the boundary using its coords line
 					with another's. store this info via an array for quick reading.
 					possible class called doorway, that stores that information (what is being connected, location of connection)
-					along with possible animation of door (to much memory being used? animation in code? animation in obj file?) need to talk with cam and fred
+					along with possible animation of door (to much memory being used? animation in code? animation in obj file?) need to talk with cam and fred, may scrap
 					 */
-				}
-			}
+
+            }
 			
 			pos = this.getDefinition().correctPassengerBounds(gauge, pos);
 			

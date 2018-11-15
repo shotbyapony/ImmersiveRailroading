@@ -306,7 +306,7 @@ public class StockModel extends OBJRender {
 			break;
 		case SHAY:
 			break;
-			case GARRETT_STEPHENSON:
+			case GARRATT_STEPHENSON:
 
 			{
 				GL11.glPushMatrix();
@@ -356,7 +356,7 @@ public class StockModel extends OBJRender {
 				GL11.glPopMatrix();
 			}
 			break;
-			case GARRETT_WALSCHAERTS:
+			case GARRATT_WALSCHAERTS:
 
             {
                 GL11.glPushMatrix();
